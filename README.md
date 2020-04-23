@@ -31,3 +31,10 @@ git checkout master
 git merge development (there won't be any conflicts now)
 git pull
 ```
+
+## Papers
+
+### Initialization
+
+* [Kaiming](https://arxiv.org/abs/1502.01852)
+* [Xavier](http://proceedings.mlr.press/v9/glorot10a.html)
