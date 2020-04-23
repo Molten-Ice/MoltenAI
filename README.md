@@ -38,3 +38,7 @@ git pull
 
 * [Kaiming](https://arxiv.org/abs/1502.01852)
 * [Xavier](http://proceedings.mlr.press/v9/glorot10a.html)
+
+### Misc
+
+* [Fixup Initialization: Residual Learning Without Normalization](https://arxiv.org/abs/1901.09321)
