@@ -42,3 +42,6 @@ git pull
 ### Misc
 
 * [Fixup Initialization: Residual Learning Without Normalization](https://arxiv.org/abs/1901.09321)
+* [Self-Normalizing Neural Networks](https://arxiv.org/abs/1706.02515)
+* [Exact solutions to the nonlinear dynamics of learning in deep linear neural networks](https://arxiv.org/abs/1312.6120)
+* [All you need is a good init](https://arxiv.org/abs/1511.06422)
