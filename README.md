@@ -5,7 +5,7 @@ Custom deep learning library
 
 ### Built With
 
-* [PyTorch](https://pytorch.org/) - Machine learning framework
+* [PyTorch](https://pytorch.org/) matrix operations
 
 ### Authors
 
