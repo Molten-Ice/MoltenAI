@@ -79,6 +79,11 @@ def notebook2scriptSingle(fname):
         output_path = output_folder/fname_out
     else:
         output_path = Path.cwd().parent/fname_out
+    
+    if output_path.exists(): 
+        print("Replacing old file")
+        import os
+        os.remove(output_path)
     with io.open(output_path, "w", encoding="utf-8") as f:
         f.write(module[:-2])
     print(f"Converted {fname} to {output_path}")

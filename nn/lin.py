@@ -4,6 +4,10 @@
 #################################################
 # file to edit: dev_nb/nn_lin.ipynb
 
+import sys
+sys.path.append('/data/home/jdavey/notebooks/fastai/mi')
+from nn.neural import Neural
+
 class Lin(Neural):
     def __init__(self, w, b): self.w,self.b = w,b
 
