@@ -5,7 +5,8 @@
 # file to edit: dev_nb/data_loader.ipynb
 
 from fastai import datasets
-import pickle, gzip
+import pickle
+import gzip
 from torch import tensor
 
 urls = {"MNIST_URL" : 'http://deeplearning.net/data/mnist/mnist.pkl'}
