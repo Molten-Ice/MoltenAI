@@ -53,7 +53,14 @@ def notebook2script(fname=None, allFiles=None, upTo=None):
 def notebook2scriptSingle(fname):
     "Finds cells starting with `#export` and puts them into a new module"
     fname = Path(fname)
-    fname_out = f'{fname.stem}.py'
+    no_prefix = False
+    if fname.stem.split("_") == 1:
+        fname_out = f'{fname.stem}.py'
+        no_prefix = True
+    else:
+        folder_name = fname.stem.split("_")[0]
+        fname_out = f'{fname.stem[len(folder_name)+1:]}.py'
+        
     main_dic = json.load(open(fname,'r',encoding="utf-8"))
     code_cells = [c for c in main_dic['cells'] if is_export(c)]
     module = f'''
@@ -66,14 +73,15 @@ def notebook2scriptSingle(fname):
     for cell in code_cells: module += ''.join(cell['source'][1:]) + '\n\n'
     # remove trailing spaces
     module = re.sub(r' +$', '', module, flags=re.MULTILINE)
-    output_path = Path.cwd().parent/fname_out
+    if not no_prefix:
+        output_folder= Path.cwd().parent/folder_name
+        if not (output_folder).exists(): (output_folder).mkdir()
+        output_path = output_folder/fname_out
+    else:
+        output_path = Path.cwd().parent/fname_out
     with io.open(output_path, "w", encoding="utf-8") as f:
         f.write(module[:-2])
     print(f"Converted {fname} to {output_path}")
     
-    output_path = Path.cwd().parent/'dev'/'exp'/fname_out
-    with io.open(output_path, "w", encoding="utf-8") as f:
-        f.write(module[:-2])
-    print(f"Converted {fname} to {output_path}")
 if __name__ == '__main__': fire.Fire(notebook2script)
 
