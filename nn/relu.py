@@ -4,6 +4,10 @@
 #################################################
 # file to edit: dev_nb/nn_relu.ipynb
 
+import sys
+sys.path.append('/data/home/jdavey/notebooks/fastai/mi')
+from nn.neural import Neural
+
 class Relu(Neural):
     def forward(self, inp): return inp.clamp_min(0.)-0.5
     def bwd(self, out, inp): inp.g = (inp>0).float() * out.g
