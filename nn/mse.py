@@ -9,5 +9,6 @@ sys.path.append('/data/home/jdavey/notebooks/fastai/mi')
 from nn.neural import Neural
 
 class Mse(Neural):
+    def __repr__(self): return "MSE()"
     def forward (self, inp, targ): return (inp.squeeze() - targ).pow(2).mean()
     def bwd(self, out, inp, targ): inp.g = 2*(inp.squeeze()-targ).unsqueeze(-1) / targ.shape[0]
