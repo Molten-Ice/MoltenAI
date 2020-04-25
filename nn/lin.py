@@ -7,9 +7,20 @@
 import sys
 sys.path.append('/data/home/jdavey/notebooks/fastai/mi')
 from nn.neural import Neural
+import torch
+import math
 
 class Lin(Neural):
-    def __init__(self, w, b): self.w,self.b = w,b
+    def __init__(self, n_in, n_out):
+        self.w = torch.randn(n_in,n_out)*math.sqrt(2./n_in)
+        self.b = torch.zeros(n_out)
+        self.w.g = None
+        self.b.g = None
+
+    def __repr__(self): return "Linear(in_features="+str(self.w.shape[0])+", out_features="+str(self.b.shape[0])+")"
+
+    def parameters(self):
+        return self.w, self.b
 
     def forward(self, inp): return inp@self.w + self.b
 

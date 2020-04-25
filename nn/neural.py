@@ -12,3 +12,4 @@ class Neural():
 
     def forward(self): raise Exception('not implemented')
     def backward(self): self.bwd(self.out, *self.args)
+    def parameters(self): return []

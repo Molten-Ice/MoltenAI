@@ -9,5 +9,6 @@ sys.path.append('/data/home/jdavey/notebooks/fastai/mi')
 from nn.neural import Neural
 
 class Relu(Neural):
+    def __repr__(self): return "Relu()"
     def forward(self, inp): return inp.clamp_min(0.)-0.5
     def bwd(self, out, inp): inp.g = (inp>0).float() * out.g
