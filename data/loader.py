@@ -4,19 +4,16 @@
 #################################################
 # file to edit: dev_nb/data_loader.ipynb
 
-from fastai import datasets
-import pickle
-import gzip
-from torch import tensor
+import torch
 
-urls = {"MNIST_URL" : 'http://deeplearning.net/data/mnist/mnist.pkl'}
+def collate(b):
+    xs,ys = zip(*b)
+    return torch.stack(xs),torch.stack(ys)
+    #glues tensors together on new axis
 
-def avaliable_urls():
-    for key in urls:
-        print(key, urls[key])
+class DataLoader():
+    def __init__(self, ds, sampler, collate_fn=collate):
+        self.ds,self.sampler,self.collate_fn = ds,sampler,collate_fn
 
-def get_data(url = "MNIST_URL"):
-    path = datasets.download_data(urls[url], ext='.gz')
-    with gzip.open(path, 'rb') as f:
-        ((x_train, y_train), (x_valid, y_valid), _) = pickle.load(f, encoding='latin-1')
-    return map(tensor, (x_train,y_train,x_valid,y_valid))
+    def __iter__(self):
+        for s in self.sampler: yield self.collate_fn([self.ds[i] for i in s])

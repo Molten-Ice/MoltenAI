@@ -10,6 +10,7 @@ class Neural():
         self.out = self.forward(*args)
         return self.out
 
-    def forward(self): raise Exception('not implemented')
+    def __repr__(self): raise Exception("__repr__ not implemented")
+    def forward(self): raise Exception('forward propagation not implemented')
     def backward(self): self.bwd(self.out, *self.args)
     def parameters(self): return []
