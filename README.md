@@ -1,5 +1,5 @@
-# mi
-Custom deep learning library
+# MoltenAI
+Fluid and robust deep learning framework
 
 ## Overview
 
