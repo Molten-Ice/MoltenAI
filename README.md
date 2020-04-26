@@ -1,5 +1,5 @@
 # MoltenAI
-Fluid and robust deep learning framework
+Simple and flexible deep learning framework
 
 ## Overview
 
