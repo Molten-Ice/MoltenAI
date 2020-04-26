@@ -5,7 +5,8 @@
 # file to edit: docs/nn_softmaxCrossEntropy.ipynb
 
 import sys
-sys.path.append('/data/home/jdavey/notebooks/fastai/mi')
+from pathlib import Path
+sys.path.append(Path.cwd().parent.as_posix())
 from nn.neural import Neural
 
 import torch
