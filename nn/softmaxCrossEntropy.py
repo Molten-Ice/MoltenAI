@@ -36,4 +36,4 @@ class SoftmaxCrossEntropy(Neural):
         grad[torch.arange(m), targ] = -1
         inp.g = grad/m
 
-    def accuracy(self, pred, yb): return (torch.argmax(pred, dim=1)==yb).float().mean()
+    def accuracy(self, pred, yb): return (torch.argmax(pred, dim=1)==yb).float().mean().item()

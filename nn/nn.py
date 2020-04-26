@@ -8,21 +8,26 @@ import sys
 from pathlib import Path
 sys.path.append(Path.cwd().parent.as_posix())
 
+from nn.module import Module
 from nn.lin import Lin
 from nn.relu import Relu
 from nn.softmaxCrossEntropy import SoftmaxCrossEntropy
 from nn.mse import Mse
+from nn.sequentialModel import SequentialModel
 
 class nn():
     @classmethod
-    def Lin(*args):
-        self.Lin = Lin(*args)
+    def Lin(self, *args):
+        return Lin(*args)
     @classmethod
-    def Relu(*args):
-        self.Relu = Relu(*args)
+    def Relu(self, *args):
+        return Relu(*args)
     @classmethod
-    def softmaxCrossEntropy(*args):
-        self.softmaxCrossEntropy = softmaxCrossEntropy(*args)
+    def SoftmaxCrossEntropy(self, *args):
+        return SoftmaxCrossEntropy(*args)
     @classmethod
-    def Mse(*args):
-        self.Mse = Mse(*args)
+    def Mse(self, *args):
+        return Mse(*args)
+    @classmethod
+    def Sequential(self, *args):
+        return SequentialModel(*args)
