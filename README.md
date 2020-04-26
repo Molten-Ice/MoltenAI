@@ -5,8 +5,7 @@ Custom deep learning library
 
 ### Built With
 
-* [PyTorch](https://pytorch.org/) matrix operations
-
+* [PyTorch](https://pytorch.org/) - Linear algebra
 ### Authors
 
 * **James Davey** - *head of technology at* [WarwickAI](https://warwickai.ml/)
