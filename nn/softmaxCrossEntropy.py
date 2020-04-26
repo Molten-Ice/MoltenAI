@@ -5,7 +5,8 @@
 # file to edit: docs/nn_softmaxCrossEntropy.ipynb
 
 import sys
-sys.path.append('/data/home/jdavey/notebooks/fastai/mi')
+from pathlib import Path
+sys.path.append(Path.cwd().parent.as_posix())
 from nn.neural import Neural
 
 import torch
@@ -35,4 +36,4 @@ class SoftmaxCrossEntropy(Neural):
         grad[torch.arange(m), targ] = -1
         inp.g = grad/m
 
-    def accuracy(self, pred, yb): return (torch.argmax(pred, dim=1)==yb).float().mean()
+    def accuracy(self, pred, yb): return (torch.argmax(pred, dim=1)==yb).float().mean().item()

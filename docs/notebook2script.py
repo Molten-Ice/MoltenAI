@@ -54,7 +54,7 @@ def notebook2scriptSingle(fname):
     "Finds cells starting with `#export` and puts them into a new module"
     fname = Path(fname)
     no_prefix = False
-    if fname.stem.split("_") == 1:
+    if len(fname.stem.split("_")) == 1:
         fname_out = f'{fname.stem}.py'
         no_prefix = True
     else:
@@ -79,7 +79,6 @@ def notebook2scriptSingle(fname):
         output_path = output_folder/fname_out
     else:
         output_path = Path.cwd().parent/fname_out
-    
     if output_path.exists(): 
         print("Replacing old file")
         import os

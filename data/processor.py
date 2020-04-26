@@ -4,8 +4,9 @@
 #################################################
 # file to edit: docs/data_processor.ipynb
 
+from pathlib import Path
 import sys
-sys.path.append('/data/home/jdavey/notebooks/fastai/mi')
+sys.path.append(Path.cwd().parent.as_posix())
 from data.scraper import *
 from data.dataset import Dataset
 from data.sampler import Sampler
@@ -23,8 +24,8 @@ def data_processor(bs, url ="MNIST_URL"):
     train_ds,valid_ds = Dataset(x_train, y_train),Dataset(x_valid, y_valid)
 
     train_samp = Sampler(train_ds, bs, shuffle=True)
-    #valid_samp = Sampler(valid_ds, bs, shuffle=False)
+    valid_samp = Sampler(valid_ds, bs, shuffle=False)
 
     train_dl = DataLoader(train_ds, sampler=train_samp)
-    #valid_dl = DataLoader(valid_ds, sampler=valid_samp)
-    return train_dl, valid_ds
+    valid_dl = DataLoader(valid_ds, sampler=valid_samp)
+    return train_dl, valid_dl
