@@ -1,4 +1,4 @@
-# MoltenAI
+# White Box AI
 Simple and flexible deep learning framework
 
 ## Overview
